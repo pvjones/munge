@@ -5,14 +5,17 @@ import { isEmpty } from '../src/types/isEmpty'
 export const runHarness = async () => {
   /** START */
 
-  const a = () => {
-    return isEmpty(new Set())
+  const jobA = {
+    name: 'local',
+    work: () => isEmpty([]),
+  }
+  const jobB = {
+    name: 'lodash',
+    work: () => _.isEmpty([]),
   }
 
-  const b = () => {
-    return _.isEmpty(new Set())
-  }
-
-  const result = compare({ name: 'local', work: a }, { name: 'lodash', work: b })
+  const result = compare(jobA, jobB, {
+    description: 'Comparison of local vs lodash versions of isEmpty',
+  })
   console.log('result', result)
 }
