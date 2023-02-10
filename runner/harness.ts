@@ -13,6 +13,6 @@ export const runHarness = async () => {
     return _.isEmpty(new Set())
   }
 
-  const result = compare(a, b)
+  const result = compare({ name: 'local', work: a }, { name: 'lodash', work: b })
   console.log('result', result)
 }

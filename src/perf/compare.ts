@@ -5,7 +5,7 @@ let stats = {
   aEnd: '',
 }
 
-export const compare = (workerA, workerB, options = {}) => {
+export const compare = (jobA, jobB, options = {}) => {
   const { iterations = N } = options
 
   const result = { a: 0, b: 0 }
@@ -17,7 +17,7 @@ export const compare = (workerA, workerB, options = {}) => {
   t1 = performance.now()
 
   while (++n <= iterations) {
-    workerA()
+    jobA.work()
   }
 
   t2 = performance.now()
@@ -28,7 +28,7 @@ export const compare = (workerA, workerB, options = {}) => {
   t1 = performance.now()
 
   while (++n <= iterations) {
-    workerB()
+    jobB.work()
   }
 
   t2 = performance.now()
