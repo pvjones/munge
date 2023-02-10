@@ -24,6 +24,13 @@ interface Typify extends TFunc {
   isUndefined: Check
 }
 
+export const TAGS = {
+  array: '[object Array]',
+  object: '[object Object]',
+  set: '[object Set]',
+  map: '[object Map]',
+}
+
 export const TYPES = {
   array: 'array',
   boolean: 'boolean',
